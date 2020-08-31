@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
 
-gem 'httparty'
+gem 'faraday'
 gem 'nokogiri'
-gem 'byebug'
