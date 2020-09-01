@@ -21,7 +21,7 @@ class ResultArray < Array
       if self[i][:lang_used].to_s.length.zero?
         puts 'Language used: Not available'
       else
-        "Language used: #{self[i][:lang_used]}."
+        puts "Language used: #{self[i][:lang_used]}."
       end
       puts "Number of stars: #{self[i][:star_number]}."
     end

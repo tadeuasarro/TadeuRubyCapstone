@@ -4,7 +4,7 @@
 
 require 'nokogiri'
 require 'faraday'
-require '../lib/result_array.rb'
+require '../lib/filters.rb'
 
 def scraper
   unparsed_page = Faraday::Response.new
@@ -21,8 +21,8 @@ def scraper
 
   parsed_page = Nokogiri::HTML(unparsed_page.body)
 
-  repo_listing = parsed_page.css('li.col-12')
   result_array = ResultArray.new
+  repo_listing = parsed_page.css('li.col-12')
   result_array.retrieve_repos(repo_listing)
 
   total_repositories = parsed_page.css('span.Counter').text[0..1].to_i
@@ -34,6 +34,10 @@ def scraper
     repo_listing = parsed_page.css('li.col-12')
     result_array.retrieve_repos(repo_listing)
   end
+
+  filter = Filters.new(result_array)
+  filter.check_filter_input
+  filter.check_filter(filter.input)
 
   result_array.display_repos
 end
