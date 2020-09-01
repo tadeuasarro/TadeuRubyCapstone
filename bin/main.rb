@@ -5,6 +5,7 @@
 require 'nokogiri'
 require 'faraday'
 require '../lib/filters.rb'
+require '../lib/sort.rb'
 
 def scraper
   unparsed_page = Faraday::Response.new
@@ -37,7 +38,9 @@ def scraper
 
   filter = Filters.new(result_array)
   filter.check_filter_input
-  filter.check_filter(filter.input)
+
+  sort = Sort.new(result_array)
+  sort.check_sort_input
 
   result_array.display_repos
 end
