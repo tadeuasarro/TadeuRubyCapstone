@@ -19,7 +19,6 @@ def scraper
     puts 'User not found!!'
   end
 
-
   parsed_page = Nokogiri::HTML(unparsed_page.body)
 
   result_array = ResultArray.new

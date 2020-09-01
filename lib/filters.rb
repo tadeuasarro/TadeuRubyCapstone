@@ -33,11 +33,11 @@ class Filters
       puts 'No filters were added.'
     when 1
       key = false
-      while key == false do
+      while key == false
         puts 'Filtering by date.'
         puts 'Input a start date [YYYY/MM/DD]:'
         self.start_date = gets.chomp
-        puts 'input a end date [YYYY/MM/DD]:'
+        puts 'Input an end date [YYYY/MM/DD]:'
         self.end_date = gets.chomp
         key = filter_by_date
       end
@@ -59,24 +59,35 @@ class Filters
   end
 
   def filter_by_date
-    if Date.parse(self.start_date) > Date.parse(self.end_date)
+    if Date.parse(start_date) > Date.parse(end_date)
       puts 'Check the dates input please!'
       return false
     end
     @result_array.select! do |x|
-      Date.parse(x[:last_update]) > Date.parse(self.start_date) && Date.parse(x[:last_update]) < Date.parse(self.end_date)
+      Date.parse(x[:last_update]) > Date.parse(start_date) && Date.parse(x[:last_update]) < Date.parse(end_date)
     end
     @result_array
   end
 
-  def filter_by_language(language)
-    puts self.language
+  def filter_by_language
+    @result_array.select! do |x|
+      (x[:lang_used]).downcase == language.downcase
+    end
+    @result_array
   end
 
   def filter_by_both
-    self.start_date.to_date
-    puts self.end_date
-    puts self.language
+    if Date.parse(start_date) > Date.parse(end_date)
+      puts 'Check the dates input please!'
+      return false
+    end
+    @result_array.select! do |x|
+      Date.parse(x[:last_update]) > Date.parse(start_date) && Date.parse(x[:last_update]) < Date.parse(end_date)
+    end
+    @result_array.select! do |x|
+      (x[:lang_used]).downcase == language.downcase
+    end
+    @result_array
   end
 
   def start_filtering
