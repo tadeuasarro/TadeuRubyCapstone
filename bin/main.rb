@@ -4,17 +4,7 @@
 
 require 'nokogiri'
 require 'faraday'
-
-def retrieve_repo(repo_listing, result_array)
-  repo_listing.each do |i|
-    repo = {
-      repo_name: i.css('h3.wb-break-all').text.to_s.gsub("\n", '').gsub(' ', ''),
-      last_update: i.css('relative-time.no-wrap').text
-    }
-    result_array << repo
-  end
-  result_array
-end
+require '../lib/result_array.rb'
 
 def scraper
   unparsed_page = Faraday::Response.new
@@ -32,8 +22,8 @@ def scraper
   parsed_page = Nokogiri::HTML(unparsed_page.body)
 
   repo_listing = parsed_page.css('li.col-12')
-  result_array = []
-  retrieve_repo(repo_listing, result_array)
+  result_array = ResultArray.new
+  result_array.retrieve_repos(repo_listing)
 
   total_repositories = parsed_page.css('span.Counter').text[0..1].to_i
 
@@ -42,10 +32,10 @@ def scraper
     unparsed_page = Faraday.get(url[0].to_s)
     parsed_page = Nokogiri::HTML(unparsed_page.body)
     repo_listing = parsed_page.css('li.col-12')
-    retrieve_repo(repo_listing, result_array)
+    result_array.retrieve_repos(repo_listing)
   end
 
-  puts result_array
+  result_array.display_repos
 end
 
 # rubocop:enable Metrics/MethodLength
