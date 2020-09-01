@@ -1,4 +1,6 @@
 # rubocop:disable Metrics/MethodLength
+# rubocop:disable Metrics/CyclomaticComplexity
+# rubocop:disable Metrics/PerceivedComplexity
 
 require 'date'
 require '../lib/result_array.rb'
@@ -29,7 +31,7 @@ class Sort
   end
 
   def check_sort
-    case self.input
+    case input
     when 0
       puts 'No filters were added.'
     when 1
@@ -40,7 +42,8 @@ class Sort
         puts '1 -- Ascending'
         puts '2 -- Descending'
         self.option = gets.chomp.to_i
-        break if self.option == 2 || self.option == 1
+        break if option == 2 || option == 1
+
         puts 'Invalid input!'
       end
       sort_by_date
@@ -52,7 +55,8 @@ class Sort
         puts '1 -- Ascending'
         puts '2 -- Descending'
         self.option = gets.chomp.to_i
-        break if self.option == 2 || self.option == 1
+        break if option == 2 || option == 1
+
         puts 'Invalid input!'
       end
       sort_by_language
@@ -64,7 +68,8 @@ class Sort
         puts '1 -- Ascending'
         puts '2 -- Descending'
         self.option = gets.chomp.to_i
-        break if self.option == 2 || self.option == 1
+        break if option == 2 || option == 1
+
         puts 'Invalid input!'
       end
       sort_by_stars
@@ -72,30 +77,33 @@ class Sort
   end
 
   def sort_by_date
-    if self.option == 1
-      @result_array.sort!{|x, y| Date.parse(x[:last_update]) <=> Date.parse(y[:last_update])}
+    if option == 1
+      @result_array.sort! { |x, y| Date.parse(x[:last_update]) <=> Date.parse(y[:last_update]) }
     else
-      @result_array.sort!{|x, y| Date.parse(y[:last_update]) <=> Date.parse(x[:last_update])}
+      @result_array.sort! { |x, y| Date.parse(y[:last_update]) <=> Date.parse(x[:last_update]) }
     end
     @result_array
   end
 
   def sort_by_language
-    if self.option == 1
-      @result_array.sort!{|x, y| x[:lang_used] <=> y[:lang_used]}
+    if option == 1
+      @result_array.sort! { |x, y| x[:lang_used] <=> y[:lang_used] }
     else
-      @result_array.sort!{|x, y| y[:lang_used] <=> x[:lang_used]}
+      @result_array.sort! { |x, y| y[:lang_used] <=> x[:lang_used] }
     end
     @result_array
   end
 
   def sort_by_stars
-    if self.option == 1
-      @result_array.sort!{|x, y| x[:star_number].to_i <=> y[:star_number].to_i}
+    if option == 1
+      @result_array.sort! { |x, y| x[:star_number].to_i <=> y[:star_number].to_i }
     else
-      @result_array.sort!{|x, y| y[:star_number].to_i <=> x[:star_number].to_i}
+      @result_array.sort! { |x, y| y[:star_number].to_i <=> x[:star_number].to_i }
     end
     @result_array
   end
-
 end
+
+# rubocop:enable Metrics/MethodLength
+# rubocop:enable Metrics/CyclomaticComplexity
+# rubocop:enable Metrics/PerceivedComplexity

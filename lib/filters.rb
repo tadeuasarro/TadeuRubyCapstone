@@ -29,7 +29,7 @@ class Filters
   end
 
   def check_filter
-    case self.input
+    case input
     when 0
       puts 'No filters were added.'
     when 1
