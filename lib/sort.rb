@@ -16,7 +16,7 @@ class Sort
     answer = ''
     loop do
       puts 'Choose the selected sort from below:'
-      puts 'Available filters:'
+      puts 'Available sorting methods:'
       puts '0 -- No sorting'
       puts '1 -- Date sorting'
       puts '2 -- Language sorting'
@@ -63,7 +63,7 @@ class Sort
     when 3
       self.option = 0
       loop do
-        puts 'Sorting by language.'
+        puts 'Sorting by stars numbers.'
         puts 'Choose:'
         puts '1 -- Ascending'
         puts '2 -- Descending'
