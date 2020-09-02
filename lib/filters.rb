@@ -1,7 +1,7 @@
 # rubocop:disable Metrics/MethodLength
 
 require 'date'
-require '../lib/result_array.rb'
+require_relative '../lib/result_array.rb'
 
 class Filters
   attr_accessor :start_date, :end_date, :language, :input
