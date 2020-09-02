@@ -24,7 +24,7 @@ class Sort
       answer = gets.chomp.to_i
       break if [0, 1, 2, 3].include?(answer)
 
-      puts 'Incorrect input. Please, try again.'
+      puts 'Invalid input. Please, try again.'
     end
     self.input = answer
     check_sort
@@ -33,7 +33,7 @@ class Sort
   def check_sort
     case input
     when 0
-      puts 'No filters were added.'
+      puts 'No sorting were added.'
     when 1
       self.option = 0
       loop do
