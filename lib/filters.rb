@@ -1,7 +1,9 @@
 # rubocop:disable Metrics/MethodLength
+# rubocop:disable Metrics/CyclomaticComplexity
+# rubocop:disable Metrics/PerceivedComplexity
 
 require 'date'
-require '../lib/result_array.rb'
+require_relative '../lib/result_array.rb'
 
 class Filters
   attr_accessor :start_date, :end_date, :language, :input
@@ -36,10 +38,20 @@ class Filters
       key = false
       while key == false
         puts 'Filtering by date.'
-        puts 'Input a start date [YYYY/MM/DD]:'
-        self.start_date = gets.chomp
-        puts 'Input an end date [YYYY/MM/DD]:'
-        self.end_date = gets.chomp
+        loop do
+          puts 'Input a start date [YYYY-MM-DD]:'
+          self.start_date = gets.chomp
+          break if date_validator(start_date)
+
+          puts 'Invalid date!'
+        end
+        loop do
+          puts 'Input an end date [YYYY-MM-DD]:'
+          self.end_date = gets.chomp
+          break if date_validator(end_date)
+
+          puts 'Invalid date!'
+        end
         key = filter_by_date
       end
     when 2
@@ -48,20 +60,40 @@ class Filters
       self.language = gets.chomp
       filter_by_language
     when 3
-      puts 'Filtering by both.'
-      puts 'Input a start date [YYYY/MM/DD]:'
-      self.start_date = gets.chomp
-      puts 'input a end date [YYYY-MM/DD]:'
-      self.end_date = gets.chomp
+      key = false
+      while key == false
+        puts 'Filtering by date.'
+        loop do
+          puts 'Input a start date [YYYY-MM-DD]:'
+          self.start_date = gets.chomp
+          break if date_validator(start_date)
+
+          puts 'Invalid date!'
+        end
+        loop do
+          puts 'Input an end date [YYYY-MM-DD]:'
+          self.end_date = gets.chomp
+          break if date_validator(end_date)
+
+          puts 'Invalid date!'
+        end
+        key = filter_by_date
+      end
       puts 'Input the choosen language:'
       self.language = gets.chomp
       filter_by_both
     end
   end
 
+  def date_validator(validating_argument)
+    Date.parse(validating_argument)
+  rescue StandardError
+    false
+  end
+
   def filter_by_date
     if Date.parse(start_date) > Date.parse(end_date)
-      puts 'Check the dates input please!'
+      puts 'Check the start and end dates order!'
       return false
     end
     @result_array.select! do |x|
@@ -79,7 +111,7 @@ class Filters
 
   def filter_by_both
     if Date.parse(start_date) > Date.parse(end_date)
-      puts 'Check the dates input please!'
+      puts 'Check the start and end dates order!'
       return false
     end
     @result_array.select! do |x|
@@ -93,3 +125,5 @@ class Filters
 end
 
 # rubocop:enable Metrics/MethodLength
+# rubocop:enable Metrics/CyclomaticComplexity
+# rubocop:enable Metrics/PerceivedComplexity

@@ -5,7 +5,7 @@ class ResultArray < Array
         repo_name: i.css('h3.wb-break-all').text.to_s.gsub("\n", '').gsub(' ', ''),
         last_update: i.css('relative-time.no-wrap').text,
         lang_used: i.css('span.ml-0').text.to_s.gsub("\n", '').gsub(' ', ''),
-        star_number: i.css('a.muted-link').text.to_s.gsub("\n", '').gsub(' ', '')
+        star_number: i.css('a.muted-link.mr-3').text.to_s.gsub("\n", '').split[0]
       }
       self << repo
     end
