@@ -1,8 +1,8 @@
 # Ruby Capstone
 
-### Hello there! The mais objetive of this project is to create a web scraper, that retrieves information from someone's Github repositories, by using their username.
+#### Hello there! The mais objetive of this project is to create a web scraper, that retrieves information from someone's Github repositories, by using their username.
 
-### The main feature of this application is the capacity to filter and sort the result.
+#### The main feature of this application is the capacity to filter and sort the result.
 
 #### Filter options:
 - Programming language
@@ -14,8 +14,6 @@
 - Last updated
 - Number of stars
 - These can be ascending (a-z/ 1-10) or descending (z-a/ 10-1)
-
-To accomplish this it was used Ruby as programming language, the Rspec framework for testing and debugging just as Rubocop to lint. I also would like to point out the gems used, which were Date, Nokogiri, Faraday and Rubocop.
 
 ## Built With
 
