@@ -34,7 +34,7 @@ To accomplish this it was used Ruby as programming language, the Rspec framework
 - [Video link]()
 
 ## Getting started
-- Install [git](https://git-scm.com/downloads)
+- Install [Git](https://git-scm.com/downloads)
 - Open Terminal
 - Change directory to folder to download repository
 - Use `cd <file-path>`
