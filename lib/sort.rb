@@ -3,7 +3,7 @@
 # rubocop:disable Metrics/PerceivedComplexity
 
 require 'date'
-require '../lib/result_array.rb'
+require_relative '../lib/result_array.rb'
 
 class Sort
   attr_accessor :input, :option
