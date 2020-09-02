@@ -29,7 +29,7 @@
 
 ## Video
 
-- [Video link]()
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gafLK_0vIWo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Getting started
 - Install [Git](https://git-scm.com/downloads)
