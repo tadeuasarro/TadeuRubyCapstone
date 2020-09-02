@@ -2,6 +2,10 @@
 
 #### Hello there! The mais objetive of this project is to create a web scraper, that retrieves information from someone's Github repositories, by using their username.
 
+#### Screenshot
+
+![screenshot](img/screenshot.png)
+
 #### The main feature of this application is the capacity to filter and sort the result.
 
 #### Filter options:
@@ -26,12 +30,6 @@
 - [Nokogiri](https://github.com/sparklemotion/nokogiri/)
 - [Faraday](https://github.com/lostisland/faraday/)
 - [Rubocop](https://github.com/rubocop-hq/rubocop/)
-
-## Video
-
-<figure class="video_container">
-  <iframe src="https://www.youtube.com/embed/gafLK_0vIWo" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
 
 ## Getting started
 - Install [Git](https://git-scm.com/downloads)
