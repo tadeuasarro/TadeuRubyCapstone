@@ -25,10 +25,11 @@ class Filters
       puts 'Incorrect input. Please, try again.'
     end
     self.input = answer
+    check_filter
   end
 
-  def check_filter(check_filter_input)
-    case check_filter_input
+  def check_filter
+    case input
     when 0
       puts 'No filters were added.'
     when 1
@@ -88,16 +89,6 @@ class Filters
       (x[:lang_used]).downcase == language.downcase
     end
     @result_array
-  end
-
-  def start_filtering
-    if !@start_date.nil? && !@end_date.nil?
-      # start filtering by the dates
-      puts 'filtering by dates'
-    elsif !@language.nil?
-      # start filtering by the language
-      puts 'filtering by languages'
-    end
   end
 end
 
