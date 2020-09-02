@@ -4,8 +4,8 @@
 
 require 'nokogiri'
 require 'faraday'
-require '../lib/filters.rb'
-require '../lib/sort.rb'
+require_relative '../lib/filters.rb'
+require_relative '../lib/sort.rb'
 
 def scraper
   unparsed_page = Faraday::Response.new
