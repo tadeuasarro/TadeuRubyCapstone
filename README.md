@@ -28,6 +28,7 @@
 - [Rubocop](https://github.com/rubocop-hq/rubocop/)
 
 ## Video
+
 <figure class="video_container">
   <iframe src="https://www.youtube.com/embed/gafLK_0vIWo" frameborder="0" allowfullscreen="true"> </iframe>
 </figure>
