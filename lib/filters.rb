@@ -88,7 +88,7 @@ class Filters
 
   def date_validator(validating_argument)
     Date.parse(validating_argument)
-  rescue
+  rescue StandardError
     false
   end
 
