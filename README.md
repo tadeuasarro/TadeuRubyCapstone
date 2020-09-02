@@ -1,15 +1,15 @@
 # Ruby Capstone
 
-Hello there! The mais objetive of this project is to create a web scraper, that retrieves information from someone's Github repositories, by using their username.
+### Hello there! The mais objetive of this project is to create a web scraper, that retrieves information from someone's Github repositories, by using their username.
 
-The main feature of this application is the capacity to filter and sort the result.
+### The main feature of this application is the capacity to filter and sort the result.
 
 #### Filter options:
 - Programming language
 - Last updated
 - Programming language and last updated
 
-##### Sort options:
+#### Sort options:
 - Programming language
 - Last updated
 - Number of stars
@@ -33,13 +33,23 @@ To accomplish this it was used Ruby as programming language, the Rspec framework
 
 - [Video link]()
 
-## This is me:
+## Getting started
+- Install [git](https://git-scm.com/downloads)
+- Open Terminal
+- Change directory to folder to download repository
+- Use `cd <file-path>`
+- Run `git clone https://github.com/tadeuasarro/TadeuRubyCapstone.git`
+- Install [Ruby](https://ruby-doc.org/downloads/)
+- Run `bundle install`
+- Run `ruby bin/main.rb`
+
+## This is me
 
 👤 Tadeu A Sarro
 
 - [Website](https://tadeuasarro.web.app)
 
-## 🤝 Contributing
+## Contributing
 
 Contributions, issues and feature requests are welcome!
 
@@ -47,7 +57,7 @@ Feel free to check the [issues page](https://github.com/tadeuasarro/TadeuRubyCap
 
 ## Show your support
 
-Give a ⭐️ if you like this project!
+Give a star if you like this project!
 
 ## Acknowledgments
 
