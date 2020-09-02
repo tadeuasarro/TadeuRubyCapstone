@@ -36,10 +36,18 @@ class Filters
       key = false
       while key == false
         puts 'Filtering by date.'
-        puts 'Input a start date [YYYY/MM/DD]:'
-        self.start_date = gets.chomp
-        puts 'Input an end date [YYYY/MM/DD]:'
-        self.end_date = gets.chomp
+        loop do
+          puts 'Input a start date [YYYY-MM-DD]:'
+          self.start_date = gets.chomp
+          break if date_validator(self.start_date)
+          puts 'Invalid date!'
+        end
+        loop do
+          puts 'Input an end date [YYYY-MM-DD]:'
+          self.end_date = gets.chomp
+          break if date_validator(self.end_date)
+          puts 'Invalid date!'
+        end
         key = filter_by_date
       end
     when 2
@@ -49,13 +57,21 @@ class Filters
       filter_by_language
     when 3
       puts 'Filtering by both.'
-      puts 'Input a start date [YYYY/MM/DD]:'
+      puts 'Input a start date [YYYY-MM-DD]:'
       self.start_date = gets.chomp
-      puts 'input a end date [YYYY-MM/DD]:'
+      puts 'input a end date [YYYY-MM-DD]:'
       self.end_date = gets.chomp
       puts 'Input the choosen language:'
       self.language = gets.chomp
       filter_by_both
+    end
+  end
+
+  def date_validator(validating_argument)
+    begin
+      Date.parse(validating_argument)
+    rescue
+      false
     end
   end
 
