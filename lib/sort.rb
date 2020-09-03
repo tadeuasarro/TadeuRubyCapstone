@@ -6,7 +6,6 @@ require 'date'
 require_relative '../lib/result_array.rb'
 
 class Sort
-
   def initialize(result_array = ResultArray)
     @result_array = result_array
   end
@@ -30,6 +29,7 @@ class Sort
   end
 
   private
+
   def check_sort
     case @input
     when 0

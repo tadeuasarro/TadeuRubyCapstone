@@ -6,7 +6,6 @@ require 'date'
 require_relative '../lib/result_array.rb'
 
 class Filters
-
   def initialize(result_array = ResultArray)
     @result_array = result_array
   end
@@ -30,6 +29,7 @@ class Filters
   end
 
   private
+
   def check_filter
     case @input
     when 0
