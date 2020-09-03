@@ -1,6 +1,6 @@
 # Ruby Capstone
 
-#### Hello there! The mais objetive of this project is to create a web scraper, that retrieves information from someone's Github repositories, by using their username.
+#### Hello there! The objetive of this project is to create a web scraper, that retrieves information from someone's Github repositories, by using their username.
 
 #### The main feature of this application is the capacity to filter and sort the result.
 
