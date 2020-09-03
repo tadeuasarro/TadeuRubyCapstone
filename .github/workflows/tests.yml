@@ -13,7 +13,7 @@ jobs:
           ruby-version: 2.6.x
       - name: Setup RSpec
         run: |
-          [ -f Gemfile ] && bundle --deployment
-          gem install --no-document rspec:'~>3.0'
-      - name: RSpec Report
-        run: rspec --force-color --format documentation
+          gem install --no-document rubocop:'~>0.81.0' # https://docs.rubocop.org/en/stable/installation/
+          [ -f .rubocop.yml ] || wget https://raw.githubusercontent.com/microverseinc/linters-config/master/ruby/.rubocop.yml
+      - name: Rubocop Report
+        run: rubocop --color
