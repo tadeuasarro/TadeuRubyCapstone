@@ -3,7 +3,7 @@
 require 'date'
 require 'nokogiri'
 require 'faraday'
-require './lib/sort'
+require_relative '../lib/sort'
 
 unparsed_page = Faraday.get('https://github.com/tadeuasarro?tab=repositories')
 parsed_page = Nokogiri::HTML(unparsed_page.body)

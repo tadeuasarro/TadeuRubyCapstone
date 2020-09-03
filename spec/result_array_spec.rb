@@ -1,6 +1,6 @@
 # spec/result_array_spec.rb
 
-require './lib/filters'
+require_relative '../lib/filters'
 require 'nokogiri'
 require 'faraday'
 require 'date'
