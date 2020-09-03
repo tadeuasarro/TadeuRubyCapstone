@@ -6,6 +6,7 @@ require 'date'
 require_relative '../lib/result_array.rb'
 
 class Sort
+  attr_writer :option, :input
   def initialize(result_array = ResultArray)
     @result_array = result_array
   end
@@ -75,6 +76,8 @@ class Sort
       sort_by_stars
     end
   end
+
+  public
 
   def sort_by_date
     if @option == 1

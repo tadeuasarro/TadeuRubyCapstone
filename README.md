@@ -47,6 +47,12 @@
 - Run `ruby bin/main.rb`
 
 
+## Testing
+- Run `gem install rspec`
+- Then `rspec --init`
+- And then `rspec`
+
+
 ## This is me
 
 👤 Tadeu A Sarro

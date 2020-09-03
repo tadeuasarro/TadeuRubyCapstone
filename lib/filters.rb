@@ -6,6 +6,7 @@ require 'date'
 require_relative '../lib/result_array.rb'
 
 class Filters
+  attr_writer :start_date, :end_date, :language
   def initialize(result_array = ResultArray)
     @result_array = result_array
   end
@@ -90,6 +91,8 @@ class Filters
   rescue StandardError
     false
   end
+
+  public
 
   def filter_by_date
     if Date.parse(@start_date) > Date.parse(@end_date)
