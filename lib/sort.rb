@@ -6,7 +6,6 @@ require 'date'
 require_relative '../lib/result_array.rb'
 
 class Sort
-  attr_accessor :input, :option
 
   def initialize(result_array = ResultArray)
     @result_array = result_array
@@ -26,49 +25,50 @@ class Sort
 
       puts 'Invalid input. Please, try again.'
     end
-    self.input = answer
+    @input = answer
     check_sort
   end
 
+  private
   def check_sort
-    case input
+    case @input
     when 0
       puts 'No sorting were added.'
     when 1
-      self.option = 0
+      @option = 0
       loop do
         puts 'Sorting by date.'
         puts 'Choose:'
         puts '1 -- Ascending'
         puts '2 -- Descending'
-        self.option = gets.chomp.to_i
-        break if option == 2 || option == 1
+        @option = gets.chomp.to_i
+        break if @option == 2 || @option == 1
 
         puts 'Invalid input!'
       end
       sort_by_date
     when 2
-      self.option = 0
+      @option = 0
       loop do
         puts 'Sorting by language.'
         puts 'Choose:'
         puts '1 -- Ascending'
         puts '2 -- Descending'
-        self.option = gets.chomp.to_i
-        break if option == 2 || option == 1
+        @option = gets.chomp.to_i
+        break if @option == 2 || @option == 1
 
         puts 'Invalid input!'
       end
       sort_by_language
     when 3
-      self.option = 0
+      @option = 0
       loop do
         puts 'Sorting by stars numbers.'
         puts 'Choose:'
         puts '1 -- Ascending'
         puts '2 -- Descending'
-        self.option = gets.chomp.to_i
-        break if option == 2 || option == 1
+        @option = gets.chomp.to_i
+        break if @option == 2 || @option == 1
 
         puts 'Invalid input!'
       end
@@ -77,7 +77,7 @@ class Sort
   end
 
   def sort_by_date
-    if option == 1
+    if @option == 1
       @result_array.sort! { |x, y| Date.parse(x[:last_update]) <=> Date.parse(y[:last_update]) }
     else
       @result_array.sort! { |x, y| Date.parse(y[:last_update]) <=> Date.parse(x[:last_update]) }
@@ -86,7 +86,7 @@ class Sort
   end
 
   def sort_by_language
-    if option == 1
+    if @option == 1
       @result_array.sort! { |x, y| x[:lang_used] <=> y[:lang_used] }
     else
       @result_array.sort! { |x, y| y[:lang_used] <=> x[:lang_used] }
@@ -95,7 +95,7 @@ class Sort
   end
 
   def sort_by_stars
-    if option == 1
+    if @option == 1
       @result_array.sort! { |x, y| x[:star_number].to_i <=> y[:star_number].to_i }
     else
       @result_array.sort! { |x, y| y[:star_number].to_i <=> x[:star_number].to_i }
