@@ -6,7 +6,7 @@
 
 #### Screenshot
 
-![screenshot](img/screenshot.png)
+![screenshot](img/Screenshot from 2020-11-02 09-28-07.png)
 
 
 #### Filter options:
